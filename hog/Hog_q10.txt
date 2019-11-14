@@ -1,0 +1,17 @@
+def bacon_strategy(score, opponent_score, margin=8, num_rolls=4):
+    """This strategy rolls 0 dice if that gives at least MARGIN points, and
+    rolls NUM_ROLLS otherwise.
+    """
+    # BEGIN PROBLEM 10
+    new_score = free_bacon(opponent_score) + score #if 0 is rolled and added to score
+
+    if free_bacon(opponent_score) >= margin: #free bacon result bigger than margin: good.
+        if is_swap(new_score, opponent_score) and opponent_score > new_score:
+            return 0 #if it isn't a swap and the result is bigger than margin
+            #if it is a swap and new score is bigger, return 0
+            #if is_swap true and new_score < opponent_score return num_rolls
+    return num_rolls  #does this have to account for is_swap()?
+
+    #if swapping doesn't yield a higher new score, return num rolls
+    #if 0 automatically results in a smaller new score then don't do it.
+    # END PROBLEM 10
